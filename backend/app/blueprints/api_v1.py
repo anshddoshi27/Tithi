@@ -1357,11 +1357,31 @@ def get_availability_slots(resource_id: str):
         start_dt = datetime.fromisoformat(start_date.replace('Z', '+00:00'))
         end_dt = datetime.fromisoformat(end_date.replace('Z', '+00:00'))
         
-        availability_service = AvailabilityService()
-        slots = availability_service.get_available_slots(tenant_id, uuid.UUID(resource_id), start_dt, end_dt)
+        # Use unified availability service
+        from ..services.availability_unified import UnifiedAvailabilityService
+        unified_service = UnifiedAvailabilityService()
+        
+        # Get service_id from query params (required for unified service)
+        service_id = request.args.get('service_id')
+        if not service_id:
+            raise TithiError(
+                message="service_id parameter is required",
+                code="TITHI_VALIDATION_ERROR",
+                status_code=400
+            )
+        
+        # Get staff_id from query params (optional)
+        staff_id = request.args.get('staff_id')
+        staff_uuid = uuid.UUID(staff_id) if staff_id else None
+        
+        slots = unified_service.get_available_slots(
+            tenant_id, uuid.UUID(service_id), staff_uuid, start_dt, end_dt
+        )
         
         return jsonify({
             "resource_id": resource_id,
+            "service_id": service_id,
+            "staff_id": staff_id,
             "slots": slots,
             "total": len(slots)
         }), 200
@@ -1381,10 +1401,7 @@ def get_availability_slots(resource_id: str):
         )
 
 
-# Simple in-memory storage for categories and services (for development)
-_categories_storage = []
-_services_storage = []
-
+# Resolved conflict - keeping HEAD version
 # Categories Management (Frontend Step 3)
 @api_v1_bp.route("/categories", methods=["GET"])
 def list_categories():
