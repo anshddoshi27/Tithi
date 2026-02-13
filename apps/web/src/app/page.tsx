@@ -44,7 +44,7 @@ export default function LandingPage() {
               href="/signup"
               className="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-glow-blue transition hover:bg-primary/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             >
-              Join Revol Now
+              Start Distributing
             </Link>
           </div>
         </nav>
@@ -53,7 +53,7 @@ export default function LandingPage() {
       <LandingHero />
 
       <footer className="relative z-10 mx-auto mb-12 mt-auto flex w-full max-w-5xl flex-col items-center justify-between gap-4 rounded-3xl border border-white/10 bg-black/70 px-6 py-6 text-xs text-white/60 backdrop-blur sm:flex-row">
-        <span>© {new Date().getFullYear()} Revol Corporation. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Revol Distribute. All rights reserved.</span>
         <div className="flex items-center gap-4">
           <Link
             href="#"
