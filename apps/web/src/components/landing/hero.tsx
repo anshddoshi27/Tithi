@@ -33,7 +33,7 @@ export function LandingHero() {
           animate="visible"
           transition={{ delay: 0.1, duration: 0.7 }}
         >
-          Booking Reimagined
+          Music Distribution Reimagined
         </motion.span>
 
         <motion.h1
@@ -92,11 +92,10 @@ export function LandingHero() {
           transition={{ delay: 0.6, duration: 0.7 }}
         >
           <span className="rounded-full border border-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-white/60">
-            Manual capture by design
+            GarageBand-ready workflow
           </span>
           <p className="max-w-lg text-sm text-white/70">
-            Cards are saved during checkout—money moves only when you press Completed, No-Show,
-            Cancelled, or Refund in the admin. The UI makes that rule impossible to miss.
+            Drag in your GarageBand exports, set release metadata, and push your tracks to major streaming services from one dashboard.
           </p>
         </motion.div>
       </div>

@@ -1,16 +1,15 @@
 export const landingContent = {
   hero: {
-    title: "Revol",
+    title: "Revol Distribute",
     subtitle:
-      "The booking platform built for service businesses that need precision control over payments, policies, and availability.",
+      "Upload your GarageBand masters once and launch everywhere—Spotify, Apple Music, YouTube Music, Amazon Music, TikTok, and more.",
     primaryAction: {
-      label: "Join Revol Now",
+      label: "Start Distributing",
       href: "/signup"
     },
     secondaryAction: {
-      label: "Login",
+      label: "View Demo",
       href: "/login"
     }
   }
 } as const;
-
